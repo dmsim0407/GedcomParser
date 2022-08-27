@@ -175,7 +175,6 @@ PublishScripts/
 # NuGet v3's project.json files produces more ignoreable files
 *.nuget.props
 *.nuget.targets
-src/nuget.config
 
 # Microsoft Azure Build Output
 csx/
@@ -273,3 +272,6 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+
+# Custom
+src/nuget.config

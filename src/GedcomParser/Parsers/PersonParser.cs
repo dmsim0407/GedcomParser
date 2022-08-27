@@ -76,17 +76,7 @@ namespace GedcomParser.Parsers
                         break;
 
                     case "NAME":
-                        var nameSections = chunk.Data.Split("/".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                        if (nameSections.Length > 0)
-                        {
-                            person.FirstName = nameSections[0];
-                        }
-
-                        if (nameSections.Length > 1)
-                        {
-                            person.LastName = nameSections[1];
-                        }
-
+                        person.Name = resultContainer.ParseName(chunk);
                         break;
 
                     case "NATU":

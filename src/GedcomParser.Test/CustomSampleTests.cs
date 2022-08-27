@@ -75,8 +75,8 @@ namespace GedcomParser.Test
             // Assert
             result.Errors.ShouldBeEmptyWithFeedback();
             result.Warnings.ShouldContain("Skipped Person Type='FAMS'");
-            Assert.Collection(result.Persons, person => { Assert.Equal("Travis", person.FirstName.Trim()); Assert.Equal(2, person.Immigrated.Count); },
-                                              person => { Assert.Equal("Niles", person.FirstName.Trim()); Assert.Empty(person.Immigrated); });            
+            Assert.Collection(result.Persons, person => { Assert.Equal("Travis", person.Name.GivenNames.Trim()); Assert.Equal(2, person.Immigrated.Count); },
+                                              person => { Assert.Equal("Niles", person.Name.GivenNames.Trim()); Assert.Empty(person.Immigrated); });            
         }
 
         [Fact]
@@ -91,8 +91,8 @@ namespace GedcomParser.Test
             // Assert
             result.Errors.ShouldBeEmptyWithFeedback();
             result.Warnings.ShouldContain("Skipped Person Type='FAMS'");
-            Assert.Collection(result.Persons, person => { Assert.Equal("Travis", person.FirstName.Trim()); Assert.Equal(2, person.Emigrated.Count); },
-                                              person => { Assert.Equal("Niles", person.FirstName.Trim()); Assert.Empty(person.Emigrated); });
+            Assert.Collection(result.Persons, person => { Assert.Equal("Travis", person.Name.GivenNames.Trim()); Assert.Equal(2, person.Emigrated.Count); },
+                                              person => { Assert.Equal("Niles", person.Name.GivenNames.Trim()); Assert.Empty(person.Emigrated); });
         }
     }
 }

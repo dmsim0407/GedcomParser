@@ -7,8 +7,7 @@ namespace GedcomParser.Entities
         public string Id { get; set; }
         public string Uid { get; set; }
         public string IdNumber { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public Name Name { get; set; }
         public string Gender { get; set; }
         public DatePlace Birth { get; set; }
         public DatePlace Death { get; set; }

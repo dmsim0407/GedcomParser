@@ -2,7 +2,6 @@
 using GedcomParser.Entities;
 using GedcomParser.Entities.Internal;
 
-
 namespace GedcomParser.Parsers
 {
     public static class DateParser
