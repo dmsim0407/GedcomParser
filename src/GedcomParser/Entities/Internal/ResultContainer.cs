@@ -45,9 +45,13 @@ namespace GedcomParser.Entities.Internal
             return new Result
             {
                 Persons = Persons.OrderBy(p => p.Id).ToList(),
-                ChildRelations = ChildRelations, 
+                ChildRelations = ChildRelations,
                 SpouseRelations = SpouseRelations,
-                SiblingRelations = SiblingRelations, 
+                SiblingRelations = SiblingRelations,
+                Sources = Sources.OrderBy(s => s.Id).ToList(),
+                SourceCitations = SourceCitations,
+                Repositories = Repositories.OrderBy(r => r.Id).ToList(),
+                RepositorySources = RepositorySources,
                 Errors = new HashSet<string>(Errors.OrderBy(e => e)),
                 Warnings = new HashSet<string>(Warnings.OrderBy(e => e))
             };

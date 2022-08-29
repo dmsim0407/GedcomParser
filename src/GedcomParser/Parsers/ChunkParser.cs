@@ -24,12 +24,20 @@ namespace GedcomParser.Parsers
                         resultContainer.AddIdChunk(chunk);
                         break;
 
+                    case "SOUR":
+                        resultContainer.ParseSource(chunk);
+                        resultContainer.AddIdChunk(chunk);
+                        break;
+
+                    case "REPO":
+                        resultContainer.ParseRepository(chunk);
+                        resultContainer.AddIdChunk(chunk);
+                        break;
+
                     case "NOTE":
                     case "OBJE":
-                    case "REPO":
                     case "SUBM":
                     case "SUBN":
-                    case "SOUR":
                         resultContainer.AddIdChunk(chunk);
                         break;
 
@@ -55,12 +63,16 @@ namespace GedcomParser.Parsers
         {
             switch (chunk.Type)
             {
-                case "NOTE":
+                case "REPO":
                     return 0;
-                case "INDI":
+                case "SOUR":
                     return 1;
-                case "FAM":
+                case "NOTE":
                     return 2;
+                case "INDI":
+                    return 3;
+                case "FAM":
+                    return 4;
                 default:
                     return 0;
             }

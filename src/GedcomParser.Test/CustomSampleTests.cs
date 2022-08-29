@@ -23,7 +23,7 @@ namespace GedcomParser.Test
             // Assert
             result.Errors.ShouldBeEmptyWithFeedback();
             // result.Warnings.ShouldBeEmptyWithFeedback();
-            result.Warnings.Count.ShouldBe(3);
+            result.Warnings.Count.ShouldBe(4);
             result.Warnings.ShouldContain("Skipped Person Type='FAMC'");
             result.Warnings.ShouldContain("Skipped Person Type='FAMS'");
             result.Warnings.ShouldContain("Skipped Person Type='HIST'");
@@ -40,11 +40,11 @@ namespace GedcomParser.Test
 
             // Assert
             // result.Errors.ShouldBeEmptyWithFeedback();
-            result.Errors.Count.ShouldBe(2);
+            result.Errors.Count.ShouldBe(4);
             result.Errors.ShouldContain("Failed to handle top level Type='_GRP'");
             result.Errors.ShouldContain("Failed to handle top level Type='_PLC'");
             // result.Warnings.ShouldBeEmptyWithFeedback();
-            result.Warnings.Count.ShouldBe(18);
+            result.Warnings.Count.ShouldBe(19);
         }
 
         [Fact]
@@ -93,6 +93,48 @@ namespace GedcomParser.Test
             result.Warnings.ShouldContain("Skipped Person Type='FAMS'");
             Assert.Collection(result.Persons, person => { Assert.Equal("Travis", person.Name.GivenNames.Trim()); Assert.Equal(2, person.Emigrated.Count); },
                                               person => { Assert.Equal("Niles", person.Name.GivenNames.Trim()); Assert.Empty(person.Emigrated); });
+        }
+
+        [Fact]
+        public void CanParseSimpsonMcDowellFamily()
+        {
+            // Arrange
+            var lines = ResourceHelper.GetLines("CustomSample.SimpsonMcDowell.ged");
+
+            // Act
+            var result = FileParser.ParseLines(lines);
+
+            // Assert
+            result.Errors.Count.ShouldBe(11);
+            result.Errors.ShouldContain("Failed to handle Family Type='_SREL'");
+            result.Errors.ShouldContain("Failed to handle Family Type='ENGA'");
+            result.Errors.ShouldContain("Failed to handle Note Type='OBJE'");
+            result.Errors.ShouldContain("Failed to handle Note Type='TYPE'");
+            result.Errors.ShouldContain("Failed to handle Person Type='_MILT'");
+            result.Errors.ShouldContain("Failed to handle Person Type='_MTTAG'");
+            result.Errors.ShouldContain("Failed to handle Person Type='CREM'");
+            result.Errors.ShouldContain("Failed to handle Person Type='MARR'");
+            result.Errors.ShouldContain("Failed to handle Source Type='_APID'");
+            result.Errors.ShouldContain("Failed to handle Source Type='NOTE'");
+            result.Errors.ShouldContain("Failed to handle top level Type='_MTTAG'");
+
+            result.Warnings.Count.ShouldBe(7);
+            result.Warnings.ShouldContain("Skipped Note Type='SOUR'");
+            result.Warnings.ShouldContain("Skipped Person Type='EVEN'");
+            result.Warnings.ShouldContain("Skipped Person Type='FAMC'");
+            result.Warnings.ShouldContain("Skipped Person Type='FAMS'");
+            result.Warnings.ShouldContain("Skipped Person Type='OBJE'");
+            result.Warnings.ShouldContain("Skipped Person Type='SOUR'");
+            result.Warnings.ShouldContain("Skipped SourceCitation Type='_APID'");
+
+            result.Persons.Count.ShouldBe(362);
+            result.Sources.Count.ShouldBe(63);
+            result.Repositories.Count.ShouldBe(14);
+            result.ChildRelations.Count.ShouldBe(477);
+            result.SiblingRelations.Count.ShouldBe(830);
+            result.SpouseRelations.Count.ShouldBe(110);
+            result.RepositorySources.Count.ShouldBe(63);
+            result.SourceCitations.Count.ShouldBe(387);
         }
     }
 }

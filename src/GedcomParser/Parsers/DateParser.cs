@@ -6,7 +6,7 @@ namespace GedcomParser.Parsers
 {
     public static class DateParser
     {
-        internal static DatePlace ParseDatePlace(this ResultContainer resultContainer, GedcomChunk chunk)
+        internal static DatePlace ParseDatePlace(this ResultContainer resultContainer, GedcomChunk chunk, Person person = null)
         {
             var datePlace = new DatePlace
             {
@@ -24,6 +24,14 @@ namespace GedcomParser.Parsers
             if (note != null)
             {
                 datePlace.Note = resultContainer.ParseNote(datePlace.Note, note);
+            }
+
+            if (person != null)
+            {
+                foreach (var sourceCitation in chunk.SubChunks.FindAll(c => c.Type == "SOUR"))
+                {
+                    resultContainer.ParseSourceCitation(sourceCitation, person, chunk.Type);
+                }
             }
 
             return datePlace;

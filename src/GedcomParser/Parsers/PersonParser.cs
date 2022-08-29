@@ -1,5 +1,4 @@
-﻿using System;
-using GedcomParser.Entities;
+﻿using GedcomParser.Entities;
 using GedcomParser.Entities.Internal;
 
 
@@ -24,15 +23,15 @@ namespace GedcomParser.Parsers
                         break;
 
                     case "BAPM":
-                        person.Baptized = resultContainer.ParseDatePlace(chunk);
+                        person.Baptized = resultContainer.ParseDatePlace(chunk, person);
                         break;
 
                     case "BIRT":
-                        person.Birth = resultContainer.ParseDatePlace(chunk);
+                        person.Birth = resultContainer.ParseDatePlace(chunk, person);
                         break;
 
                     case "BURI":
-                        person.Buried = resultContainer.ParseDatePlace(chunk);
+                        person.Buried = resultContainer.ParseDatePlace(chunk, person);
                         break;
 
                     case "CHAN":
@@ -40,11 +39,11 @@ namespace GedcomParser.Parsers
                         break;
 
                     case "CHR":
-                        person.Baptized = resultContainer.ParseDatePlace(chunk);
+                        person.Baptized = resultContainer.ParseDatePlace(chunk, person);
                         break;
 
                     case "DEAT":
-                        person.Death = resultContainer.ParseDatePlace(chunk);
+                        person.Death = resultContainer.ParseDatePlace(chunk, person);
                         break;
 
                     case "EDUC":
@@ -52,7 +51,7 @@ namespace GedcomParser.Parsers
                         break;
 
                     case "EMIG":
-                        person.Emigrated.Add(resultContainer.ParseDatePlace(chunk));
+                        person.Emigrated.Add(resultContainer.ParseDatePlace(chunk, person));
                         break;
 
                     case "FACT":
@@ -60,7 +59,7 @@ namespace GedcomParser.Parsers
                         break;
 
                     case "GRAD":
-                        person.Graduation = resultContainer.ParseDatePlace(chunk);
+                        person.Graduation = resultContainer.ParseDatePlace(chunk, person);
                         break;
 
                     case "HEAL":
@@ -72,7 +71,7 @@ namespace GedcomParser.Parsers
                         break;
 
                     case "IMMI":
-                        person.Immigrated.Add(resultContainer.ParseDatePlace(chunk));
+                        person.Immigrated.Add(resultContainer.ParseDatePlace(chunk, person));
                         break;
 
                     case "NAME":
@@ -80,7 +79,7 @@ namespace GedcomParser.Parsers
                         break;
 
                     case "NATU":
-                        person.BecomingCitizen = resultContainer.ParseDatePlace(chunk);
+                        person.BecomingCitizen = resultContainer.ParseDatePlace(chunk, person);
                         break;
 
                     case "NOTE":
@@ -92,7 +91,7 @@ namespace GedcomParser.Parsers
                         break;
 
                     case "RESI":
-                        person.Residence = resultContainer.ParseDatePlace(chunk);
+                        person.Residence = resultContainer.ParseDatePlace(chunk, person);
                         break;
 
                     case "RELI":
