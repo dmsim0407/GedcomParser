@@ -52,6 +52,8 @@ namespace GedcomParser.Entities.Internal
                 SourceCitations = SourceCitations,
                 Repositories = Repositories.OrderBy(r => r.Id).ToList(),
                 RepositorySources = RepositorySources,
+                Tags = Tags.OrderBy(r => r.Id).ToList(),
+                PersonTags = PersonTags,
                 Errors = new HashSet<string>(Errors.OrderBy(e => e)),
                 Warnings = new HashSet<string>(Warnings.OrderBy(e => e))
             };

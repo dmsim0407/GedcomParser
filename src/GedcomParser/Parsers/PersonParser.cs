@@ -1,7 +1,6 @@
 ﻿using GedcomParser.Entities;
 using GedcomParser.Entities.Internal;
 
-
 namespace GedcomParser.Parsers
 {
     public static class PersonParser
@@ -23,15 +22,15 @@ namespace GedcomParser.Parsers
                         break;
 
                     case "BAPM":
-                        person.Baptized = resultContainer.ParseDatePlace(chunk, person);
+                        person.Baptized = resultContainer.ParseDatePlace(chunk, new Person[] { person });
                         break;
 
                     case "BIRT":
-                        person.Birth = resultContainer.ParseDatePlace(chunk, person);
+                        person.Birth = resultContainer.ParseDatePlace(chunk, new Person[] { person });
                         break;
 
                     case "BURI":
-                        person.Buried = resultContainer.ParseDatePlace(chunk, person);
+                        person.Buried = resultContainer.ParseDatePlace(chunk, new Person[] { person });
                         break;
 
                     case "CHAN":
@@ -39,11 +38,11 @@ namespace GedcomParser.Parsers
                         break;
 
                     case "CHR":
-                        person.Baptized = resultContainer.ParseDatePlace(chunk, person);
+                        person.Baptized = resultContainer.ParseDatePlace(chunk, new Person[] { person });
                         break;
 
                     case "DEAT":
-                        person.Death = resultContainer.ParseDatePlace(chunk, person);
+                        person.Death = resultContainer.ParseDatePlace(chunk, new Person[] { person });
                         break;
 
                     case "EDUC":
@@ -51,7 +50,7 @@ namespace GedcomParser.Parsers
                         break;
 
                     case "EMIG":
-                        person.Emigrated.Add(resultContainer.ParseDatePlace(chunk, person));
+                        person.Emigrated.Add(resultContainer.ParseDatePlace(chunk, new Person[] { person }));
                         break;
 
                     case "FACT":
@@ -59,7 +58,7 @@ namespace GedcomParser.Parsers
                         break;
 
                     case "GRAD":
-                        person.Graduation = resultContainer.ParseDatePlace(chunk, person);
+                        person.Graduation = resultContainer.ParseDatePlace(chunk, new Person[] { person });
                         break;
 
                     case "HEAL":
@@ -71,7 +70,7 @@ namespace GedcomParser.Parsers
                         break;
 
                     case "IMMI":
-                        person.Immigrated.Add(resultContainer.ParseDatePlace(chunk, person));
+                        person.Immigrated.Add(resultContainer.ParseDatePlace(chunk, new Person[] { person }));
                         break;
 
                     case "NAME":
@@ -79,7 +78,7 @@ namespace GedcomParser.Parsers
                         break;
 
                     case "NATU":
-                        person.BecomingCitizen = resultContainer.ParseDatePlace(chunk, person);
+                        person.BecomingCitizen = resultContainer.ParseDatePlace(chunk, new Person[] { person });
                         break;
 
                     case "NOTE":
@@ -91,7 +90,7 @@ namespace GedcomParser.Parsers
                         break;
 
                     case "RESI":
-                        person.Residence = resultContainer.ParseDatePlace(chunk, person);
+                        person.Residence = resultContainer.ParseDatePlace(chunk, new Person[] { person });
                         break;
 
                     case "RELI":
@@ -104,6 +103,14 @@ namespace GedcomParser.Parsers
 
                     case "TITL":
                         person.Title = chunk.Data;
+                        break;
+
+                    case "_MTTAG":
+                        var tag = resultContainer.Tags.Find(t => t.Id == chunk.Reference);
+                        if (tag != null)
+                        {
+                            resultContainer.PersonTags.Add(new PersonTag { Person = person, Tag = tag });
+                        }
                         break;
 
                     // Deliberately skipped for now

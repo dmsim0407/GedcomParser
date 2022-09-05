@@ -13,6 +13,8 @@ namespace GedcomParser.Entities
         public List<SourceCitation> SourceCitations { get; set; }
         public List<Repository> Repositories { get; set; }
         public List<RepositorySource> RepositorySources { get; set; }
+        public List<Tag> Tags { get; set; }
+        public List<PersonTag> PersonTags { get; set; }
         public HashSet<string> Warnings { get; set; }
         public HashSet<string> Errors { get; set; }
 
@@ -26,6 +28,8 @@ namespace GedcomParser.Entities
             SourceCitations = new List<SourceCitation>();
             Repositories = new List<Repository>();
             RepositorySources = new List<RepositorySource>();
+            Tags = new List<Tag>();
+            PersonTags = new List<PersonTag>();
             Warnings = new HashSet<string>();
             Errors = new HashSet<string>();
         }

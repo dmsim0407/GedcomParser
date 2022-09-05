@@ -11,7 +11,7 @@ namespace GedcomParser.Parsers
     {
         internal static void ParseFamily(this ResultContainer resultContainer, GedcomChunk famChunk)
         {
-            DatePlace marriage = null;
+            GedcomChunk marriageChunk = null;
             string relation = null;
             string note = null;
             DatePlace divorce = null;
@@ -49,7 +49,7 @@ namespace GedcomParser.Parsers
                         break;
 
                     case "MARR":
-                        marriage = resultContainer.ParseDatePlace(chunk);
+                        marriageChunk = chunk;
                         break;
 
                     case "NOTE":
@@ -95,7 +95,7 @@ namespace GedcomParser.Parsers
                     FamilyId = famChunk.Id,
                     From = parents[0],
                     To = parents[1],
-                    Marriage = marriage,
+                    Marriage = (marriageChunk != null ? resultContainer.ParseDatePlace(marriageChunk, new Person[] { parents[0], parents[1] }) : null),
                     Divorce = divorce,
                     Relation = relation,
                     Note = note

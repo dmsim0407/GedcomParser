@@ -105,20 +105,18 @@ namespace GedcomParser.Test
             var result = FileParser.ParseLines(lines);
 
             // Assert
-            result.Errors.Count.ShouldBe(11);
+            result.Errors.Count.ShouldBe(9);
             result.Errors.ShouldContain("Failed to handle Family Type='_SREL'");
             result.Errors.ShouldContain("Failed to handle Family Type='ENGA'");
             result.Errors.ShouldContain("Failed to handle Note Type='OBJE'");
             result.Errors.ShouldContain("Failed to handle Note Type='TYPE'");
             result.Errors.ShouldContain("Failed to handle Person Type='_MILT'");
-            result.Errors.ShouldContain("Failed to handle Person Type='_MTTAG'");
             result.Errors.ShouldContain("Failed to handle Person Type='CREM'");
             result.Errors.ShouldContain("Failed to handle Person Type='MARR'");
             result.Errors.ShouldContain("Failed to handle Source Type='_APID'");
             result.Errors.ShouldContain("Failed to handle Source Type='NOTE'");
-            result.Errors.ShouldContain("Failed to handle top level Type='_MTTAG'");
 
-            result.Warnings.Count.ShouldBe(7);
+            result.Warnings.Count.ShouldBe(8);
             result.Warnings.ShouldContain("Skipped Note Type='SOUR'");
             result.Warnings.ShouldContain("Skipped Person Type='EVEN'");
             result.Warnings.ShouldContain("Skipped Person Type='FAMC'");
@@ -126,6 +124,7 @@ namespace GedcomParser.Test
             result.Warnings.ShouldContain("Skipped Person Type='OBJE'");
             result.Warnings.ShouldContain("Skipped Person Type='SOUR'");
             result.Warnings.ShouldContain("Skipped SourceCitation Type='_APID'");
+            result.Warnings.ShouldContain("Skipped Tag Type='RIN'");
 
             result.Persons.Count.ShouldBe(362);
             result.Sources.Count.ShouldBe(63);
@@ -134,7 +133,9 @@ namespace GedcomParser.Test
             result.SiblingRelations.Count.ShouldBe(830);
             result.SpouseRelations.Count.ShouldBe(110);
             result.RepositorySources.Count.ShouldBe(63);
-            result.SourceCitations.Count.ShouldBe(387);
+            result.SourceCitations.Count.ShouldBe(461);
+            result.Tags.Count.ShouldBe(23);
+            result.PersonTags.Count.ShouldBe(124);
         }
     }
 }

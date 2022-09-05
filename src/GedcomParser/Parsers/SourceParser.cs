@@ -80,6 +80,7 @@ namespace GedcomParser.Parsers
                         case "_APID":
                             resultContainer.Warnings.Add($"Skipped SourceCitation Type='{chunk.Type}'");
                             break;
+                            
                         default:
                             resultContainer.Errors.Add($"Failed to handle SourceCitation Type='{chunk.Type}'");
                             break;

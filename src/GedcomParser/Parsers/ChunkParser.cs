@@ -2,7 +2,6 @@
 using System.Linq;
 using GedcomParser.Entities.Internal;
 
-
 namespace GedcomParser.Parsers
 {
     public static class ChunkParser
@@ -32,6 +31,11 @@ namespace GedcomParser.Parsers
                     case "REPO":
                         resultContainer.ParseRepository(chunk);
                         resultContainer.AddIdChunk(chunk);
+                        break;
+                    
+                    // Custom tags used by Ancestry.com
+                    case "_MTTAG":
+                        resultContainer.ParseTag(chunk);
                         break;
 
                     case "NOTE":
@@ -69,10 +73,12 @@ namespace GedcomParser.Parsers
                     return 1;
                 case "NOTE":
                     return 2;
-                case "INDI":
+                case "_MTTAG":
                     return 3;
-                case "FAM":
+                case "INDI":
                     return 4;
+                case "FAM":
+                    return 5;
                 default:
                     return 0;
             }
