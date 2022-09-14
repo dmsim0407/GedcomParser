@@ -137,5 +137,20 @@ namespace GedcomParser.Test
             result.Tags.Count.ShouldBe(23);
             result.PersonTags.Count.ShouldBe(124);
         }
+
+        [Fact]
+        public void CanParsePeterSimpsonFamilyTree()
+        {
+            // Arrange
+            var lines = ResourceHelper.GetLines("CustomSample.PeterSimpsonFamilyTree.ged");
+
+            // Act
+            var result = FileParser.ParseLines(lines);
+
+            // Assert
+            result.Errors.Count.ShouldBe(5);
+
+            result.Warnings.Count.ShouldBe(0);
+        }
     }
 }

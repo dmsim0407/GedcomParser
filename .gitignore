@@ -275,3 +275,5 @@ __pycache__/
 
 # Custom
 src/nuget.config
+src/GedcomParser.Test/Resources/CustomSample/PeterSimpsonFamilyTree.ged
+#src/GedcomParser.Test/Resources/CustomSample/SimpsonMcDowell.ged
