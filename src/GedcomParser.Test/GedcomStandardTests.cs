@@ -40,11 +40,12 @@ namespace GedcomParser.Test
             // Assert
             result.Errors.ShouldBeEmptyWithFeedback();
             // result.Warnings.ShouldBeEmptyWithFeedback();
-            result.Warnings.Count.ShouldBe(4);
+            result.Warnings.Count.ShouldBe(5);
             result.Warnings.ShouldContain("Skipped Adoption Type='DATE'");
             result.Warnings.ShouldContain("Skipped Person Type='FAMC'");
             result.Warnings.ShouldContain("Skipped Person Type='FAMS'");
             result.Warnings.ShouldContain("Skipped Source Type='DATA'");
+            result.Warnings.ShouldContain("from 1900 to 1905 is not a supported date format");
         }
 
         [Fact]
@@ -59,11 +60,12 @@ namespace GedcomParser.Test
             // Assert
             result.Errors.ShouldBeEmptyWithFeedback();
             // result.Warnings.ShouldBeEmptyWithFeedback();
-            result.Warnings.Count.ShouldBe(4);
+            result.Warnings.Count.ShouldBe(5);
             result.Warnings.ShouldContain("Skipped Adoption Type='DATE'");
             result.Warnings.ShouldContain("Skipped Person Type='FAMC'");
             result.Warnings.ShouldContain("Skipped Person Type='FAMS'");
             result.Warnings.ShouldContain("Skipped Source Type='DATA'");
+            result.Warnings.ShouldContain("from 1900 to 1905 is not a supported date format");
         }
 
         [Fact]
@@ -78,11 +80,12 @@ namespace GedcomParser.Test
             // Assert
             result.Errors.ShouldBeEmptyWithFeedback();
             // result.Warnings.ShouldBeEmptyWithFeedback();
-            result.Warnings.Count.ShouldBe(4);
+            result.Warnings.Count.ShouldBe(5);
             result.Warnings.ShouldContain("Skipped Adoption Type='DATE'");
             result.Warnings.ShouldContain("Skipped Person Type='FAMC'");
             result.Warnings.ShouldContain("Skipped Person Type='FAMS'");
             result.Warnings.ShouldContain("Skipped Source Type='DATA'");
+            result.Warnings.ShouldContain("from 1900 to 1905 is not a supported date format");
         }
 
         [Fact]

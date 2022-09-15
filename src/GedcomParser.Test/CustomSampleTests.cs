@@ -44,7 +44,7 @@ namespace GedcomParser.Test
             result.Errors.ShouldContain("Failed to handle top level Type='_GRP'");
             result.Errors.ShouldContain("Failed to handle top level Type='_PLC'");
             // result.Warnings.ShouldBeEmptyWithFeedback();
-            result.Warnings.Count.ShouldBe(19);
+            result.Warnings.Count.ShouldBe(524);
         }
 
         [Fact]
@@ -150,7 +150,7 @@ namespace GedcomParser.Test
             // Assert
             result.Errors.Count.ShouldBe(5);
 
-            result.Warnings.Count.ShouldBe(0);
+            result.Warnings.Count.ShouldBe(45);
         }
     }
 }
