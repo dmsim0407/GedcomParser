@@ -150,7 +150,7 @@ namespace GedcomParser.Test
             // Assert
             result.Errors.Count.ShouldBe(5);
 
-            result.Warnings.Count.ShouldBe(45);
+            result.Warnings.Count.ShouldBe(40);
         }
     }
 }

@@ -45,7 +45,7 @@ namespace GedcomParser.Test
             result.Warnings.ShouldContain("Skipped Person Type='FAMC'");
             result.Warnings.ShouldContain("Skipped Person Type='FAMS'");
             result.Warnings.ShouldContain("Skipped Source Type='DATA'");
-            result.Warnings.ShouldContain("from 1900 to 1905 is not a supported date format");
+            result.Warnings.ShouldContain("from 1900 to 1905 is not a supported date format or valid date");
         }
 
         [Fact]
@@ -65,7 +65,7 @@ namespace GedcomParser.Test
             result.Warnings.ShouldContain("Skipped Person Type='FAMC'");
             result.Warnings.ShouldContain("Skipped Person Type='FAMS'");
             result.Warnings.ShouldContain("Skipped Source Type='DATA'");
-            result.Warnings.ShouldContain("from 1900 to 1905 is not a supported date format");
+            result.Warnings.ShouldContain("from 1900 to 1905 is not a supported date format or valid date");
         }
 
         [Fact]
@@ -85,7 +85,7 @@ namespace GedcomParser.Test
             result.Warnings.ShouldContain("Skipped Person Type='FAMC'");
             result.Warnings.ShouldContain("Skipped Person Type='FAMS'");
             result.Warnings.ShouldContain("Skipped Source Type='DATA'");
-            result.Warnings.ShouldContain("from 1900 to 1905 is not a supported date format");
+            result.Warnings.ShouldContain("from 1900 to 1905 is not a supported date format or valid date");
         }
 
         [Fact]
