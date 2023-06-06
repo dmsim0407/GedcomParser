@@ -105,7 +105,7 @@ namespace GedcomParser.Test
             var result = FileParser.ParseLines(lines);
 
             // Assert
-            result.Errors.Count.ShouldBe(9);
+            result.Errors.Count.ShouldBe(11);
             result.Errors.ShouldContain("Failed to handle Family Type='_SREL'");
             result.Errors.ShouldContain("Failed to handle Family Type='ENGA'");
             result.Errors.ShouldContain("Failed to handle Note Type='OBJE'");
@@ -126,16 +126,16 @@ namespace GedcomParser.Test
             result.Warnings.ShouldContain("Skipped SourceCitation Type='_APID'");
             result.Warnings.ShouldContain("Skipped Tag Type='RIN'");
 
-            result.Persons.Count.ShouldBe(362);
-            result.Sources.Count.ShouldBe(63);
-            result.Repositories.Count.ShouldBe(14);
-            result.ChildRelations.Count.ShouldBe(477);
-            result.SiblingRelations.Count.ShouldBe(830);
-            result.SpouseRelations.Count.ShouldBe(110);
-            result.RepositorySources.Count.ShouldBe(63);
-            result.SourceCitations.Count.ShouldBe(461);
-            result.Tags.Count.ShouldBe(23);
-            result.PersonTags.Count.ShouldBe(124);
+            result.Persons.Count.ShouldBe(430);
+            result.Sources.Count.ShouldBe(86);
+            result.Repositories.Count.ShouldBe(15);
+            result.ChildRelations.Count.ShouldBe(570);
+            result.SiblingRelations.Count.ShouldBe(1052);
+            result.SpouseRelations.Count.ShouldBe(131);
+            result.RepositorySources.Count.ShouldBe(86);
+            result.SourceCitations.Count.ShouldBe(771);
+            result.Tags.Count.ShouldBe(25);
+            result.PersonTags.Count.ShouldBe(163);
         }
 
         [Fact]
