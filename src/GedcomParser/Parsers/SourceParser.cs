@@ -35,8 +35,8 @@ namespace GedcomParser.Parsers
                         var repository = resultContainer.Repositories.Find(r => r.Id == chunk.Reference);
                         if (repository != null)
                         {
-                            var repositorySource = new RepositorySource { Repository = repository, Source = source };
-                            resultContainer.RepositorySources.Add(repositorySource);
+                            var repositorySource = new SourceRepository { Repository = repository, Source = source };
+                            resultContainer.SourceRepositories.Add(repositorySource);
                         }
                         break;
 
@@ -61,7 +61,7 @@ namespace GedcomParser.Parsers
             var source = resultContainer.Sources.Find(s => s.Id == sourChunk.Reference);
             if (source != null)
             {
-                var sourceCitation = new SourceCitation { Person = person, Source = source, EventType = eventType };
+                var sourceCitation = new CitationSource { Person = person, Source = source, EventType = eventType };
 
                 foreach (var chunk in sourChunk.SubChunks)
                 {
@@ -87,7 +87,7 @@ namespace GedcomParser.Parsers
                     }
                 }
 
-                resultContainer.SourceCitations.Add(sourceCitation);
+                resultContainer.CitationSources.Add(sourceCitation);
             }
         }
     }

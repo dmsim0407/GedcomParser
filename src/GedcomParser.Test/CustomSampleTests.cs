@@ -148,8 +148,8 @@ namespace GedcomParser.Test
             result.ChildRelations.Count.ShouldBe(570);
             result.SiblingRelations.Count.ShouldBe(1052);
             result.SpouseRelations.Count.ShouldBe(131);
-            result.RepositorySources.Count.ShouldBe(86);
-            result.SourceCitations.Count.ShouldBe(771);
+            result.SourceRepositories.Count.ShouldBe(86);
+            result.CitationSources.Count.ShouldBe(771);
             result.Tags.Count.ShouldBe(25);
             result.PersonTags.Count.ShouldBe(163);
         }
