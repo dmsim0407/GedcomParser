@@ -96,6 +96,22 @@ namespace GedcomParser.Test
         }
 
         [Fact]
+        public void CanParseDifferentPersonalNameFormats()
+        {
+            // Arrange
+            var lines = ResourceHelper.GetLines("CustomSample.PersonalNameFormats.ged");
+
+            // Act
+            var result = FileParser.ParseLines(lines);
+
+            // Assert
+            result.Errors.ShouldBeEmptyWithFeedback();
+            result.Warnings.ShouldBeEmpty();
+            Assert.Collection(result.Persons, person => { Assert.Equal("John David", person.Name.GivenNames); Assert.Equal("Smith", person.Name.Surname); },
+                                              person => { Assert.Equal("Mary Joan", person.Name.GivenNames); Assert.Equal("Smith", person.Name.Surname); });
+        }
+
+        [Fact]
         public void CanParseSimpsonMcDowellFamily()
         {
             // Arrange
