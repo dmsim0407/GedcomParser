@@ -23,6 +23,7 @@
     <EmbeddedResource Include="Resources\CustomSample\Kennedy.ged" />
     <EmbeddedResource Include="Resources\CustomSample\MultipleEmigrationEvents.ged" />
     <EmbeddedResource Include="Resources\CustomSample\MultipleImmigrationEvents.ged" />
+    <EmbeddedResource Include="Resources\CustomSample\PersonalNameFormats.ged" />
     <EmbeddedResource Include="Resources\CustomSample\PeterSimpsonFamilyTree.ged" />
     <EmbeddedResource Include="Resources\CustomSample\SimpsonMcDowell.ged" />
     <EmbeddedResource Include="Resources\CustomSample\Stefan.ged" />

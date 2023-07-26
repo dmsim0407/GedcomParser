@@ -1,6 +1,6 @@
 namespace GedcomParser.Entities
 {
-    public class SourceCitation
+    public class CitationSource
     {
         public Person Person { get; set; }
         public Source Source { get; set; }
